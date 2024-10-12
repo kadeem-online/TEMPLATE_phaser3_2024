@@ -1,0 +1,25 @@
+{
+	"name": "0006-sidescroller-plugin",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"preview": "vite preview",
+		"build:itchio": "tsc && vite build --mode itchio",
+		"preview:itchio": "vite preview --mode itchio",
+		"build:wp": "tsc && vite build --mode wp",
+		"preview:wp": "vite preview --mode wp"
+	},
+	"devDependencies": {
+		"@types/node": "^22.7.5",
+		"fs-extra": "^11.2.0",
+		"typescript": "^5.5.3",
+		"vite": "^5.4.8"
+	},
+	"dependencies": {
+		"phaser": "^3.85.2",
+		"phaser3-rex-plugins": "^1.80.8"
+	}
+}
