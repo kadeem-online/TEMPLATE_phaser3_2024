@@ -83,13 +83,8 @@ export default defineConfig(({ mode }) => {
 					output: {
 						entryFileNames: "dist/[name].[hash].js",
 						chunkFileNames: "dist/[name].[hash].js",
-						assetFileNames: "assets/[name].[hash].[ext]",
-						manualChunks(id: string) {
-							// creating a chunk to @open-ish deps. Reducing the vendor chunk size
-							if (id.includes("phaser")) {
-								return "phaser";
-							}
-						},
+						assetFileNames: "game_assets/[name].[hash].[ext]",
+						manualChunks: filterManualChunks,
 					},
 				},
 			},
