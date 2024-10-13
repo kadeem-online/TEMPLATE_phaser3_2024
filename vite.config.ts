@@ -50,9 +50,6 @@ export default defineConfig(({ mode }) => {
 			build: {
 				outDir: path.resolve(__dirname, `dist/itch`),
 				rollupOptions: {
-					// input: {
-					// 	index: "./index.html",
-					// },
 					output: {
 						entryFileNames: "[name].[hash].js",
 						chunkFileNames: "[name].[hash].js",
