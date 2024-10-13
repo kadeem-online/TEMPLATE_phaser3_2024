@@ -7,7 +7,7 @@
 		"dev": "vite",
 		"build": "tsc && vite build",
 		"preview": "vite preview",
-		"build:itchio": "tsc && vite build --mode itchio",
+		"build:itchio": "tsc && vite build --mode itchio --config vite.itchio-config.ts",
 		"preview:itchio": "vite preview --mode itchio",
 		"build:wp": "tsc && vite build --mode wp",
 		"preview:wp": "vite preview --mode wp"

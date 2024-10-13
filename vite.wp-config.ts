@@ -1,6 +1,5 @@
 import { defineConfig } from "vite";
 import path from "path";
-import { fileURLToPath } from "url";
 import fs from "fs-extra";
 
 const plugin_dir_name = "phaser-game-template";
@@ -42,44 +41,34 @@ function filterManualChunks(id: string) {
 	}
 }
 
-export default defineConfig(({ mode }) => {
-	if (mode === "wp") {
-		return {
-			build: {
-				outDir: path.resolve(__dirname, `dist/${plugin_dir_name}/assets`),
-				emptyOutDir: false,
-				manifest: true,
-				rollupOptions: {
-					input: {
-						main: path.resolve(__dirname, `src/main.ts`),
-					},
-					output: {
-						entryFileNames: "dist/[name].[hash].js",
-						chunkFileNames: "dist/[name].[hash].js",
-						assetFileNames: "game_assets/[name].[hash].[ext]",
-						manualChunks: filterManualChunks,
-					},
-				},
+export default defineConfig({
+	build: {
+		outDir: path.resolve(__dirname, `dist/${plugin_dir_name}/assets`),
+		emptyOutDir: false,
+		manifest: true,
+		rollupOptions: {
+			input: {
+				main: path.resolve(__dirname, `src/main.ts`),
 			},
-			server: {
-				port: 30080,
+			output: {
+				entryFileNames: "dist/[name].[hash].js",
+				chunkFileNames: "dist/[name].[hash].js",
+				assetFileNames: "game_assets/[name].[hash].[ext]",
+				manualChunks: filterManualChunks,
 			},
-			preview: {
-				port: 30173,
-			},
-			plugins: [
-				{
-					name: "clean-plugin-folder",
-					buildStart: plugin_prebuild,
-					writeBundle: plugin_write_bundle,
-				},
-			],
-		};
-	}
-
-	return {
-		build: {
-			outDir: "dist/local",
 		},
-	};
+	},
+	server: {
+		port: 30080,
+	},
+	preview: {
+		port: 30173,
+	},
+	plugins: [
+		{
+			name: "clean-plugin-folder",
+			buildStart: plugin_prebuild,
+			writeBundle: plugin_write_bundle,
+		},
+	],
 });
