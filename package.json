@@ -9,8 +9,7 @@
 		"preview": "vite preview",
 		"build:itchio": "tsc && vite build --mode itchio --config vite.itchio-config.ts",
 		"preview:itchio": "vite preview --mode itchio",
-		"build:wp": "tsc && vite build --mode wp",
-		"preview:wp": "vite preview --mode wp"
+		"build:wp": "tsc && vite build --mode wp"
 	},
 	"devDependencies": {
 		"@types/node": "^22.7.5",
